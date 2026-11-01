@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this benchmark suite in your academic work, please cite it as below."
+authors:
+  - family-names: Silva
+    given-names: Geovana
+    orcid: "https://orcid.org/0009-0000-0000-0000"
+title: "RAG-Stat-Eval: Rigorous Statistical Validation and Robustness Auditing Suite for Retrieval-Augmented Generation"
+version: 1.0.0
+date-released: 2026-11-01
+url: "https://github.com/Geovana28/rag-stat-eval"
+repository-code: "https://github.com/Geovana28/rag-stat-eval"
+keywords:
+  - "natural language processing"
+  - "retrieval augmented generation"
+  - "statistical hypothesis testing"
+  - "bootstrap confidence intervals"
+  - "uncertainty calibration"
+license: MIT
+
