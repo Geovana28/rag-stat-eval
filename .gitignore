@@ -12,3 +12,11 @@ ENV/
 .idea/
 .DS_Store
 Thumbs.db
+
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+*.sqlite3
+.env
+
