@@ -73,15 +73,26 @@ $$\text{ECE} = \sum_{m=1}^{M} \frac{|B_m|}{N} \left| \text{acc}(B_m) - \text{con
 
 ---
 
-## ⚠️ 5. Limitações Declaradas do Estudo
+## 🤖 5. Pipeline RAG Real com Gemini API & Validação de LLM-as-Judge ($\kappa$)
 
-1. **Simulação Probabilística de Ingestão**: O gerador de benchmark utiliza um simulador probabilístico de geração e recuperação para permitir reprodutibilidade sem custos proibitivos de API de LLMs comerciais.
+Além do simulador estocástico parametrizado, o repositório implementa um pipeline RAG real sobre um corpus de **Políticas de Logística, SLA de Entrega, Cadeia Fria e Reembolso** (`pipeline/real_rag.py` + `core/llm_client.py`):
+
+- **Integração com Gemini API + Fallback Multi-Modelo**: Suporte nativo à API Gemini (`GEMINI_API_KEY` via `.env`) com *fallback* automático entre modelos, medição de latência ($\text{ms}$), contabilização de tokens e **cache determinístico em disco** (`cache/gemini_cache.json`) para execução em CI/CD com custo zero.
+- **Validação de LLM-as-Judge via Kappa de Cohen ($\kappa$)**: A concordância entre o avaliador automático e rótulos humanos de referência é auditada formalmente corrigindo pelo acaso:
+  $$\kappa = \frac{p_o - p_e}{1 - p_e}$$
+  onde $p_o$ é a proporção de concordância empírica observada e $p_e$ é a concordância esperada sob independência marginal.
+
+---
+
+## ⚠️ 6. Limitações Declaradas do Estudo
+
+1. **Simulação Probabilística + Corpus Curado**: O gerador de benchmark em larga escala ($N=500$) utiliza um simulador probabilístico parametrizado, complementado pelo benchmark real na API Gemini (`pipeline/real_rag.py`) com respostas cacheadas em `cache/gemini_cache.json`.
 2. **Independência entre Consultas**: Assume-se independência condicional entre pares de consultas ($q_i \perp q_j$), o que pode não se sustentar em conversas com histórico multi-turn.
 3. **Equidade de Subgrupos**: A regra dos 4/5 ($80\%$ rule) auditada detecta disparidades de acurácia, mas não substitui auditorias formais de equidade causal em ambientes de produção.
 
 ---
 
-## 🚀 6. Como Reproduzir os Resultados (1-Click)
+## 🚀 7. Como Reproduzir os Resultados (1-Click)
 
 ### Pré-requisitos
 * Python 3.10 ou superior

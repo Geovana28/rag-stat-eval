@@ -1,0 +1,56 @@
+{
+  "gen:gemini-3.8-flash:0.1:2bfb450b5d11739a0d61034a": {
+    "text": "A partir do momento em que o atraso ultrapassa 15 minutos além do ETA (sem atualização de rota do entregador) [POL-01].",
+    "model": "gemini-3.6-flash",
+    "latency_ms": 4201.12,
+    "prompt_tokens": 356,
+    "completion_tokens": 33,
+    "total_tokens": 956,
+    "from_cache": false
+  },
+  "gen:gemini-3.8-flash:0.1:a81f2e9f9e488203b35281ce": {
+    "text": "O prazo máximo para registrar reclamação de lacre violado ou item faltante é de até 2 horas após a confirmação de entrega [POL-02].",
+    "model": "gemini-3.6-flash",
+    "latency_ms": 6525.16,
+    "prompt_tokens": 358,
+    "completion_tokens": 34,
+    "total_tokens": 968,
+    "from_cache": false
+  },
+  "gen:gemini-3.8-flash:0.1:ad1d64fd8777f436f5a5cdf7": {
+    "text": "O raio máximo de entrega é de 4,5 km e o tempo máximo de deslocamento em bag térmica é de 22 minutos [POL-03].",
+    "model": "gemini-3.5-flash",
+    "latency_ms": 5173.25,
+    "prompt_tokens": 367,
+    "completion_tokens": 34,
+    "total_tokens": 877,
+    "from_cache": false
+  },
+  "gen:gemini-3.8-flash:0.1:baf59e39ec89dfc404c63849": {
+    "text": "O entregador deve aguardar 10 minutos após a notificação de chegada antes de iniciar o fluxo de devolução assistida [POL-05].",
+    "model": "gemini-3.6-flash",
+    "latency_ms": 3579.98,
+    "prompt_tokens": 363,
+    "completion_tokens": 32,
+    "total_tokens": 853,
+    "from_cache": false
+  },
+  "gen:gemini-3.8-flash:0.1:11a58beb469099138be9038b": {
+    "text": "O acréscimo máximo de ETA permitido para o primeiro cliente é de 8 minutos [POL-06].",
+    "model": "gemini-3.6-flash",
+    "latency_ms": 2890.27,
+    "prompt_tokens": 339,
+    "completion_tokens": 24,
+    "total_tokens": 791,
+    "from_cache": false
+  },
+  "gen:gemini-3.8-flash:0.1:a2a5032840c0268e31fbbd67": {
+    "text": "Quando a precipitação supera 10 mm/h, o motor de ETA adiciona um fator multiplicativo de 1,35x no tempo de deslocamento e reduz o raio de atendimento das lojas em 25% [POL-04].",
+    "model": "gemini-3.5-flash",
+    "latency_ms": 5368.07,
+    "prompt_tokens": 370,
+    "completion_tokens": 53,
+    "total_tokens": 1022,
+    "from_cache": false
+  }
+}

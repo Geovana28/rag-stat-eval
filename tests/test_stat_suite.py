@@ -101,6 +101,32 @@ def test_edge_cases_and_invalid_inputs():
     assert b1["ci_95_lower"] == b2["ci_95_lower"]
     assert b1["ci_95_upper"] == b2["ci_95_upper"]
 
+
+def test_real_rag_retrieval_and_cached_gemini_answers():
+    """Verifies lexical retrieval accuracy, cached Gemini API responses, and Cohen's Kappa judge validation."""
+    from pipeline.real_rag import (
+        REAL_RAG_EVAL_QUESTIONS,
+        retrieve_chunks,
+        answer_with_rag,
+        compute_cohens_kappa,
+    )
+
+    for q in REAL_RAG_EVAL_QUESTIONS:
+        top_docs = retrieve_chunks(q["question"], top_k=1)
+        assert top_docs[0]["doc_id"] == q["relevant_doc"]
+
+        ans = answer_with_rag(q["question"], config="champion")
+        assert q["relevant_doc"] in ans["retrieved_docs"]
+        assert any(kw.lower() in ans["answer"].lower() for kw in q["expected_keywords"])
+        assert ans["total_tokens"] > 0
+
+    # Cohen's Kappa validation between human labels and LLM-as-Judge
+    human_labels = [1, 1, 1, 0, 0, 1, 1, 0, 1, 0]
+    judge_labels = [1, 1, 1, 0, 0, 1, 0, 0, 1, 0]
+    kappa_res = compute_cohens_kappa(human_labels, judge_labels)
+    assert kappa_res["cohens_kappa"] >= 0.75
+    assert kappa_res["observed_agreement"] == 0.90
+
 if __name__ == "__main__":
     test_ece_perfect_calibration()
     test_mcnemar_identical_models()
