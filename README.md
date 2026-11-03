@@ -124,7 +124,7 @@ Se este framework for utilizado em pesquisas acadêmicas ou auditorias técnicas
 
 ```bibtex
 @software{silva_rag_stat_eval_2026,
-  author = {Silva, Geovana},
+  author = {Moreira, Geovana},
   title = {RAG-Stat-Eval: Rigorous Statistical Validation and Robustness Auditing Suite for Retrieval-Augmented Generation},
   year = {2026},
   publisher = {GitHub},
