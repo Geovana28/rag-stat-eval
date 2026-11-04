@@ -123,8 +123,8 @@ python run_eval.py
 Se este framework for utilizado em pesquisas acadêmicas ou auditorias técnicas, utilize a citação abaixo (disponível também em `CITATION.cff`):
 
 ```bibtex
-@software{silva_rag_stat_eval_2026,
-  author = {Moreira, Geovana},
+@software{moreira_rag_stat_eval_2026,
+  author = {Moreira, Geovana Luiza Morais},
   title = {RAG-Stat-Eval: Rigorous Statistical Validation and Robustness Auditing Suite for Retrieval-Augmented Generation},
   year = {2026},
   publisher = {GitHub},

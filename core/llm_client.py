@@ -117,7 +117,7 @@ class GeminiRAGClient:
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": temperature,
-                "maxOutputTokens": 1024,
+                "maxOutputTokens": 350,
             },
         }
         data_bytes = json.dumps(body).encode("utf-8")
@@ -153,10 +153,8 @@ class GeminiRAGClient:
         candidates = raw.get("candidates", [])
         if candidates:
             parts = candidates[0].get("content", {}).get("parts", [])
-            text_chunks = [p.get("text", "") for p in parts if not p.get("thought", False)]
-            text = "\n".join(t.strip() for t in text_chunks if t.strip())
-            if not text and parts:
-                text = parts[-1].get("text", "").strip()
+            if parts:
+                text = parts[0].get("text", "").strip()
 
         usage = raw.get("usageMetadata", {})
         prompt_tokens = int(usage.get("promptTokenCount", max(1, len(prompt) // 4)))
